@@ -8,7 +8,6 @@ const User = require("../models/User");
 
 router.post("/user/signup", async (req, res) => {
   try {
-    // Destructuring
     const { username, email, password, newsletter } = req.body;
 
     if (
@@ -30,7 +29,6 @@ router.post("/user/signup", async (req, res) => {
     const salt = uid2(16);
     const hash = SHA256(salt + password).toString(encBase64);
 
-    // Dans un objet, si la une clef et ce qu'elle est sensée contenir ont le même nom, je peux me contenter de ne mentioner ce dernier qu'un fois
     const newUser = new User({
       email,
       account: {
